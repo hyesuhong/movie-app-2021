@@ -20,40 +20,18 @@ import React from 'react';
 // class component : react.component 에서 상속 -> 상속된 render method를 자동으로 실행 -> 결과를 return -> 스크린에 디스플레이
 class App extends React.Component {
 	state = {
-		count: 0,
+		isLoading: true,
+		movies: [],
 	};
-
-	plus = () => {
-		// console.log('add');
-		this.setState((current) => ({ count: current.count + 1 }));
-	};
-	minus = () => {
-		// console.log('minus');
-		this.setState((current) => ({ count: current.count - 1 }));
-	};
-
-	constructor(props) {
-		super(props);
-		console.log('before render');
-	}
 	componentDidMount() {
-		console.log('component rendered');
-	}
-	componentDidUpdate() {
-		console.log('I just updated');
-	}
-	componentWillUnmount() {
-		console.log('Good Bye');
+		// fetch data
+		setTimeout(() => {
+			this.setState({ isLoading: false });
+		}, 6000);
 	}
 	render() {
-		console.log(`I'm rendering`);
-		return (
-			<div>
-				<h1>The number is {this.state.count}</h1>
-				<button onClick={this.plus}>Plus</button>
-				<button onClick={this.minus}>Minus</button>
-			</div>
-		);
+		const { isLoading } = this.state;
+		return <div>{isLoading ? 'Loading' : 'We are Ready'}</div>;
 	}
 }
 
