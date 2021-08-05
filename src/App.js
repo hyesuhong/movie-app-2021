@@ -1,33 +1,18 @@
 import ProtTypes from 'prop-types';
 import React from 'react';
+import axios from 'axios';
 
-// function component : 함수가 실행 -> 결과를 return -> 스크린에 디스플레이
-// function App() {
-// 	return (
-// 		<div className="App">
-// 			{fruitILike.map((item) => (
-// 				<Fruits
-// 					key={item.id}
-// 					name={item.name}
-// 					picture={item.image}
-// 					rating={item.rating}
-// 				/>
-// 			))}
-// 		</div>
-// 	);
-// }
-
-// class component : react.component 에서 상속 -> 상속된 render method를 자동으로 실행 -> 결과를 return -> 스크린에 디스플레이
 class App extends React.Component {
 	state = {
 		isLoading: true,
 		movies: [],
 	};
+	getMovies = async () => {
+		const movies = await axios.get('https://yts-proxy.now.sh/list_movies.json');
+	};
 	componentDidMount() {
 		// fetch data
-		setTimeout(() => {
-			this.setState({ isLoading: false });
-		}, 6000);
+		this.getMovies();
 	}
 	render() {
 		const { isLoading } = this.state;
