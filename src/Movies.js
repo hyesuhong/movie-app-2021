@@ -12,7 +12,6 @@ function Movie({ id, title, summary, poster, year, genres }) {
 				<ul className="genres">
 					{genres.map((genre, index) => (
 						<li className="genres__genre" key={index}>
-							{' '}
 							{genre}
 						</li>
 					))}

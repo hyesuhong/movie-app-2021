@@ -1,0 +1,42 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+html,
+body,
+#potato,
+section.container {
+	color: #444;
+	height: 100%;
+}
+
+.loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	animation: fade 0.8s alternate infinite linear;
+}
+
+@keyframes fade {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.movies {
+	display: flex;
+	/* height: 100%; */
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 50px;
+}
