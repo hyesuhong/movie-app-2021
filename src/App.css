@@ -12,6 +12,7 @@ html,
 body,
 #potato,
 section.container {
+	background: #eee;
 	color: #444;
 	height: 100%;
 }
