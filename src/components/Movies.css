@@ -1,10 +1,6 @@
 .movies__movie {
 	position: relative;
-	display: flex;
-	justify-content: space-around;
-	align-items: flex-end;
 	width: 48%;
-	padding: 20px;
 	border: 1px solid #444;
 	margin-bottom: 30px;
 	transition: background 0.3s linear;
@@ -17,6 +13,16 @@
 
 .movies__movie:hover {
 	background: #fff;
+}
+
+.movies__movie > a {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	height: 100%;
+	padding: 20px;
+	color: #444;
+	text-decoration: none;
 }
 
 .movie__poster {
