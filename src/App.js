@@ -1,16 +1,19 @@
-import React from 'react';
-import { HashRouter, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
 
 function App() {
 	return (
-		<HashRouter>
-			<Navigation />
-			<Route path="/" exact={true} component={Home} />
-			<Route path="/movie/:id" component={Detail} />
-		</HashRouter>
+		<Router>
+			<Switch>
+				<Route path="/movie/:id">
+					<Detail/>
+				</Route>
+				<Route path="/">
+					<Home/>
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 

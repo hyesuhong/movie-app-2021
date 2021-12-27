@@ -1,21 +1,26 @@
-import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-class Detail extends React.Component {
-	componentDidMount() {
-		const { location, history } = this.props;
-		if (location.state === undefined) {
-			history.push('/');
-		}
+function Detail() {
+	const { id } = useParams();
+	const [loading, setLoading] = useState(true);
+	const [infos, setInfos] = useState([]);
+
+	const getMovieInfo = async () => {
+		const json = await (
+			await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+		).json();
+		setLoading(false);
+		setInfos(json.data.movie);
 	}
-	render() {
-		const { location } = this.props;
-		//if location is not defined...
-		if (location.state) {
-			return <span>{location.state.title}</span>;
-		} else {
-			return null;
-		}
-	}
+	console.log(infos);
+
+	useEffect(() => {
+		getMovieInfo();
+	}, [id]);
+
+	return <div>{loading ? <h1>Loading...</h1> : <h1>{infos.title}</h1>}</div>
+	// return <div>{loading ? <h1>loading...</h1> : null}</div>
 }
 
 export default Detail;
