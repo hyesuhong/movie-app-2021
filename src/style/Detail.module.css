@@ -1,0 +1,86 @@
+.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	vertical-align: middle;
+}
+
+.wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+	height: 70%;
+	background: rgba(255, 255, 255, 0.3);
+	border: 1px solid #999;
+	padding: 1%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: flex-start;
+}
+
+.homeBtn {
+	position: absolute;
+	bottom: 1%;
+	left: 2%;
+	width: 30px;
+	height: 30px;
+}
+
+.homeBtn::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 100%;
+	height: 2px;
+	background: #444;
+}
+
+.homeBtn::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 50%;
+	height: 50%;
+	transform: translateY(-50%) rotate(-45deg);
+	border-top: 2px solid #444;
+	border-left: 2px solid #444;
+}
+
+.desc_wrap {
+	flex: 1;
+	height: 100%;
+	margin-left: 1%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.desc_wrap ul {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.desc_wrap ul > li {
+	margin-left: 5%;
+	list-style: none;
+}
+
+.desc_wrap ol {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 3%;
+}
+
+.desc_wrap ol > li {
+	list-style: none;
+}
+.desc_wrap ol > li:not(:last-child)::after {
+	content: ', ';
+}
